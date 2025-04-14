@@ -45,6 +45,11 @@ public class MergeController {
             mergedMenu.add((MenuItem) iterator.next());
         }
 
+        Iterator<MenuItem> cIterator = cafeRepository.getTheMenuIterator();
+        while (cIterator.hasNext()) {
+            mergedMenu.add((MenuItem) cIterator.next());
+        }
+
         mergedMenu.sort(Comparator.comparing(MenuItem::getName));
 
         return mergedMenu;
