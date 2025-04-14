@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class PancakeHouseMenu {
+public class PancakeHouseMenu implements Menu {
     List<MenuItem> menuItems;
 
     public PancakeHouseMenu() {
@@ -58,5 +58,7 @@ public class PancakeHouseMenu {
     // other menu methods here
 
     public Iterator createIterator() {
-        return new PancakeHouseIterator(menuItems);
-    }}
+        return menuItems.iterator();
+    }
+
+}
