@@ -4,6 +4,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+
+//-->NOT IN USE
+
 public class PancakeHouseIterator implements Iterator<MenuItem> {
     List<MenuItem> items;
     int position = 0;
