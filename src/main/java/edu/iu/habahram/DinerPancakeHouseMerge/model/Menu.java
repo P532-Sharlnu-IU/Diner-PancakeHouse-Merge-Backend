@@ -47,5 +47,7 @@ public class Menu extends MenuComponent{
         return  menuItemList.toArray(new MenuItem[menuItemList.size()]);
     }
 
-
+    public Iterator<MenuComponent> getIterator() {
+        return menuComponents.iterator();
+    }
 }

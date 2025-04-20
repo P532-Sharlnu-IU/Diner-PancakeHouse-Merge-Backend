@@ -1,12 +1,11 @@
 package edu.iu.habahram.DinerPancakeHouseMerge.controllers;
 
+import edu.iu.habahram.DinerPancakeHouseMerge.model.Customer;
 import edu.iu.habahram.DinerPancakeHouseMerge.model.MenuItem;
 import edu.iu.habahram.DinerPancakeHouseMerge.model.MenuItemRecord;
 import edu.iu.habahram.DinerPancakeHouseMerge.repository.MergerRepository;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,4 +25,31 @@ public class MergeController {
         List<MenuItemRecord> items = mergerRepository.getTheMenuItems();
         return items;
     }
+
+    @GetMapping("/vegetarian")
+    public List<MenuItemRecord> getVegetarian() {
+        return mergerRepository.getVegetarianMenuItems();
+    }
+
+    @GetMapping("/breakfast")
+    public List<MenuItemRecord> getBreakfast() {
+        return mergerRepository.getBreakfastMenuItems();
+    }
+
+    @GetMapping("/lunch")
+    public List<MenuItemRecord> getLunch() {
+        return mergerRepository.getLunchMenuItems();
+    }
+
+    @GetMapping("/supper")
+    public List<MenuItemRecord> getSupper() {
+        return mergerRepository.getSupperMenuItems();
+    }
+
+    @PostMapping("/signup")
+    public ResponseEntity<String> signUp(@RequestBody Customer customer) {
+        mergerRepository.saveCustomer(customer);
+        return ResponseEntity.ok("Signup successful");
+    }
+
 }
